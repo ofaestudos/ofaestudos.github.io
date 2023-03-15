@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <title>ofá estudos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add meta viewport tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       body {
         background-color: white;
@@ -14,7 +15,6 @@
         margin-left: 50px;
       }
       
-      /* Add styles for smaller screens */
       @media only screen and (max-width: 600px) {
         body {
           max-width: 100%;
@@ -25,11 +25,43 @@
     </style>
   </head>
   <body>
-    <p><strong>ofá estudos</strong></p>
-    <p>ofá estudos é a empresa de joão paulo reys, pesquisador, roteirista, editor e documentarista.</p>
-    <p><em>Brilhante redator, roteirista e homem de criação com o qual trabalhei, João Paulo Reys é um dos profissionais mais promissores do audiovisual brasileiro, dotado de uma rara percepção do mundo à nossa volta.</em> — Fausto Fawcett</p>
-    <p><a href="https://drive.google.com/file/d/1GumxyirOnlcUTl6qtJYjjp-SJN3cXQpK/view?usp=sharing">cv</a> // <a href="https://www.imdb.com/name/nm5716208/">imdb</a></p>
-    <p>contato: ofaestudos <em>arroba</em> gmail <em>ponto</em> com</p>
-    <p><strong>oke aro</strong> &#x1F3F9;</p>
-  </body>
-</html>
+<p><strong id="title">ofá estudos</strong></p>
+<p id="description">ofá estudos é a empresa de joão paulo reys, pesquisador, roteirista, editor e documentarista.</p>
+<p id="quote"><em>Brilhante redator, roteirista e homem de criação com o qual trabalhei, João Paulo Reys é um dos profissionais mais promissores do audiovisual brasileiro, dotado de uma rara percepção do mundo à nossa volta.</em> — Fausto Fawcett</p>
+<p id="links"><a href="https://drive.google.com/file/d/1GumxyirOnlcUTl6qtJYjjp-SJN3cXQpK/view?usp=sharing">cv</a> // <a href="https://www.imdb.com/name/nm5716208/">imdb</a></p>
+<p id="contact">contato: ofaestudos <em>arroba</em> gmail <em>ponto</em> com</p>
+<p id="footer"><strong>oke aro</strong> &#x1F3F9;</p>
+    
+    <div id="languages">
+      <p>
+        <a href="?lang=pt">português</a> // 
+        <a href="?lang=en">english</a>
+      </p>
+    </div>
+    
+    <script>
+      function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0; i<vars.length; i++) {
+          var pair = vars[i].split("=");
+          if (pair[0] == variable) {
+            return pair[1];
+          }
+        }
+        return false;
+      }
+
+      var lang = getQueryVariable("lang");
+
+      if (lang === "en") {
+        document.getElementById("languages").innerHTML = '<p><a href="?lang=pt">português</a> // <a href="?lang=en">english</a></p>';
+        document.getElementById("description").innerHTML = "ofá estudos is the company of joão paulo reys, researcher, screenwriter, editor and documentary filmmaker.";
+        document.getElementById("quote").innerHTML = '<em>A brilliant copywriter, screenwriter and creative person with whom I worked, João Paulo Reys is one of the most promising professionals in Brazilian cinema and television, endowed with a rare perception of the world around us.</em> — Fausto Fawcett';
+        document.getElementById("contact").innerHTML = 'contact: ofaestudos <em>at</em> gmail <em>dot</em> com';
+
+      }
+      else {
+        document.getElementById("languages").innerHTML = '<p><a href="?lang=pt">português</a> // <a href="?lang=en">english</a></p>';
+      }
+    </script>
